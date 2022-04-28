@@ -10,19 +10,12 @@ import java.util.Date;
 @PrimaryKeyJoinColumn(referencedColumnName = "idpersona")
 public class Docente extends Persona {
 
-    @Column(name = "coddocente",length = 10 )
+    @Column(name = "coddocente",length = 15)
     private  String coddocente;
-
-    @Column(name = "horas-asignadas")
+    @Column(name = "horasasignadas" ,length = 20)
     private  Double horasasignadas;
 
-
-
-
-    public Docente(Long idpersona, String coddocente, Double horasasignadas) {
-        super(idpersona);
-        this.coddocente = coddocente;
-        this.horasasignadas = horasasignadas;
+    public Docente() {
     }
 
     public Docente(String coddocente, Double horasasignadas) {

@@ -1,28 +1,25 @@
 package ilp.edu.sisgaedu.entity;
-
-
-
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.util.List;
 
-
-public class Escuela {
+@Entity
+@Table(name = "escuela")
+public class Escuela{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idescuela;
     private String denominacion;
-    private String codigoescuela;
+    private String codigoEscuela;
 
+    @OneToMany(mappedBy = "escuela")
+    private List<Estudiante> estudiantes;
 
-    public Escuela() {
-    }
-
-    public Escuela(Long idescuela, String denominacion, String codigoescuela) {
+    public Escuela(Long idescuela, String denominacion, String codigoEscuela) {
         this.idescuela = idescuela;
         this.denominacion = denominacion;
-        this.codigoescuela = codigoescuela;
+        this.codigoEscuela = codigoEscuela;
     }
 
     public Long getIdescuela() {
@@ -41,11 +38,11 @@ public class Escuela {
         this.denominacion = denominacion;
     }
 
-    public String getCodigoescuela() {
-        return codigoescuela;
+    public String getCodigoEscuela() {
+        return codigoEscuela;
     }
 
-    public void setCodigoescuela(String codigoescuela) {
-        this.codigoescuela = codigoescuela;
+    public void setCodigoEscuela(String codigoEscuela) {
+        this.codigoEscuela = codigoEscuela;
     }
 }

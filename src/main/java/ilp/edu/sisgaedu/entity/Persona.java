@@ -7,7 +7,7 @@ import java.util.Date;
 @Table(name = "persona")
 @Inheritance( strategy = InheritanceType.JOINED )
 public class Persona {
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idpersona",length = 10)
     private Long idpersona;
@@ -24,11 +24,10 @@ public class Persona {
 
     private String genero;
 
-    public Persona(Long idpersona) {
-        this.idpersona = idpersona;
-    }
 
     public Persona() {
+
+
     }
 
     public Persona(Long idpersona, String nombre, String apellido, int edad, String dni, Date fechanacimiento, String genero) {
@@ -97,3 +96,9 @@ public class Persona {
         this.genero = genero;
     }
 }
+
+
+
+
+
+
